@@ -48,7 +48,7 @@ public class Application {
     }
 
     public String readKey() {
-        IngenicoKeyboard ingenicoKeyboard = new IngenicoKeyboard();
+        SingletonKeyboard ingenicoKeyboard = SingletonKeyboard.getInstance();
 
         return ingenicoKeyboard.get();
     }
@@ -56,8 +56,8 @@ public class Application {
     public void doSale() {
         IngenicoCardSwipper cardSwipper = new IngenicoCardSwipper();
         IngenicoChipReader chipReader = new IngenicoChipReader();
-        IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
-        IngenicoKeyboard ingenicoKeyboard = new IngenicoKeyboard();
+        SingletonDisplay ingenicoDisplay = SingletonDisplay.getInstance();
+        SingletonKeyboard ingenicoKeyboard = SingletonKeyboard.getInstance();
         Card card;
 
         do {
@@ -103,9 +103,9 @@ public class Application {
     }
 
     private TransactionResponse sendSale(Transaction transaction) {
-        IngenicoEthernet ethernet = new IngenicoEthernet();
-        IngenicoModem modem = new IngenicoModem();
-        IngenicoGPS gps = new IngenicoGPS();
+        SingletonEthernet ethernet = SingletonEthernet.getInstance();
+        SingletonModem modem = SingletonModem.getInstance();
+        SingletonGPS gps = SingletonGPS.getInstance();
         TransactionResponse transactionResponse = null;
 
         switch (communicationType) {
@@ -143,11 +143,11 @@ public class Application {
 
     public void clearScreen() {
         if (supportedTerminal == SupportedTerminal.INGENICO) {
-            IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
+            SingletonDisplay ingenicoDisplay = SingletonDisplay.getInstance();
 
             ingenicoDisplay.clear();
         } else {
-            VerifoneV240mDisplay verifoneV240mDisplay = new VerifoneV240mDisplay();
+            SingletonDisplay verifoneV240mDisplay =SingletonDisplay.getInstance();
 
             verifoneV240mDisplay.clear();
         }

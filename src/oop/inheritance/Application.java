@@ -28,7 +28,7 @@ public class Application {
 
     public void showMenu() {
         if (supportedTerminal == SupportedTerminal.INGENICO) {
-            SingletonDisplay ingenicoDisplay = SingletonDisplay.getInstance();
+            IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
 
             ingenicoDisplay.showMessage(5, 5, "MENU");
             ingenicoDisplay.showMessage(5, 10, "1. VENTA");
@@ -36,7 +36,7 @@ public class Application {
             ingenicoDisplay.showMessage(5, 16, "3. REPORTE");
             ingenicoDisplay.showMessage(5, 23, "4. CONFIGURACION");
         } else {
-            SingletonDisplay verifoneV240mDisplay = SingletonDisplay.getInstance();
+            VerifoneV240mDisplay verifoneV240mDisplay = VerifoneV240mDisplay.getInstance();
 
             verifoneV240mDisplay.showMessage(5, 5, "MENU");
             verifoneV240mDisplay.showMessage(5, 10, "1. VENTA");
@@ -48,7 +48,7 @@ public class Application {
     }
 
     public String readKey() {
-        SingletonKeyboard ingenicoKeyboard = SingletonKeyboard.getInstance();
+        IngenicoKeyboard ingenicoKeyboard = IngenicoKeyboard.getInstance();
 
         return ingenicoKeyboard.get();
     }
@@ -56,8 +56,8 @@ public class Application {
     public void doSale() {
         IngenicoCardSwipper cardSwipper = new IngenicoCardSwipper();
         IngenicoChipReader chipReader = new IngenicoChipReader();
-        SingletonDisplay ingenicoDisplay = SingletonDisplay.getInstance();
-        SingletonKeyboard ingenicoKeyboard = SingletonKeyboard.getInstance();
+        IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
+        IngenicoKeyboard ingenicoKeyboard = IngenicoKeyboard.getInstance();
         Card card;
 
         do {
@@ -103,9 +103,9 @@ public class Application {
     }
 
     private TransactionResponse sendSale(Transaction transaction) {
-        SingletonEthernet ethernet = SingletonEthernet.getInstance();
-        SingletonModem modem = SingletonModem.getInstance();
-        SingletonGPS gps = SingletonGPS.getInstance();
+        IngenicoEthernet ethernet = IngenicoEthernet.getInstance();
+        IngenicoModem modem = IngenicoModem.getInstance();
+        IngenicoGPS gps = IngenicoGPS.getInstance();
         TransactionResponse transactionResponse = null;
 
         switch (communicationType) {
@@ -143,11 +143,11 @@ public class Application {
 
     public void clearScreen() {
         if (supportedTerminal == SupportedTerminal.INGENICO) {
-            SingletonDisplay ingenicoDisplay = SingletonDisplay.getInstance();
+            IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
 
             ingenicoDisplay.clear();
         } else {
-            SingletonDisplay verifoneV240mDisplay =SingletonDisplay.getInstance();
+            VerifoneV240mDisplay verifoneV240mDisplay = VerifoneV240mDisplay.getInstance();
 
             verifoneV240mDisplay.clear();
         }

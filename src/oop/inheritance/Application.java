@@ -28,7 +28,7 @@ public class Application {
 
     public void showMenu() {
         if (supportedTerminal == SupportedTerminal.INGENICO) {
-            IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
+            SingletonDisplay ingenicoDisplay = SingletonDisplay.getInstance();
 
             ingenicoDisplay.showMessage(5, 5, "MENU");
             ingenicoDisplay.showMessage(5, 10, "1. VENTA");
@@ -36,7 +36,7 @@ public class Application {
             ingenicoDisplay.showMessage(5, 16, "3. REPORTE");
             ingenicoDisplay.showMessage(5, 23, "4. CONFIGURACION");
         } else {
-            VerifoneV240mDisplay verifoneV240mDisplay = new VerifoneV240mDisplay();
+            SingletonDisplay verifoneV240mDisplay = SingletonDisplay.getInstance();
 
             verifoneV240mDisplay.showMessage(5, 5, "MENU");
             verifoneV240mDisplay.showMessage(5, 10, "1. VENTA");

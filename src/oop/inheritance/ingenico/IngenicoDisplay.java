@@ -1,6 +1,7 @@
 package oop.inheritance.ingenico;
+import oop.inheritance.data.InterfaceDisplay;
 
-public class IngenicoDisplay {
+public class IngenicoDisplay implements InterfaceDisplay{
 
     private static IngenicoDisplay instance;
 

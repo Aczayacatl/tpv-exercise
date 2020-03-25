@@ -1,7 +1,10 @@
 package oop.inheritance;
 
 import java.time.LocalDateTime;
-
+import oop.inheritance.data.*;
+import oop.inheritance.ingenico.*;
+import oop.inheritance.verifone.v240m.*;
+/*
 import oop.inheritance.data.Card;
 import oop.inheritance.data.CommunicationType;
 import oop.inheritance.data.SupportedTerminal;
@@ -16,6 +19,7 @@ import oop.inheritance.ingenico.IngenicoKeyboard;
 import oop.inheritance.ingenico.IngenicoModem;
 import oop.inheritance.ingenico.IngenicoPrinter;
 import oop.inheritance.verifone.v240m.VerifoneV240mDisplay;
+ */
 
 public class Application {
 
@@ -142,14 +146,7 @@ public class Application {
     }
 
     public void clearScreen() {
-        if (supportedTerminal == SupportedTerminal.INGENICO) {
-            IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
-
-            ingenicoDisplay.clear();
-        } else {
-            VerifoneV240mDisplay verifoneV240mDisplay = VerifoneV240mDisplay.getInstance();
-
-            verifoneV240mDisplay.clear();
-        }
+        FabricaDisplay fabricaDisplay = new FabricaDisplay();
+        InterfaceDisplay display = fabricaDisplay.getDisplay(supportedTerminal);
     }
 }

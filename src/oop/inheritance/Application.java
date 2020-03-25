@@ -148,5 +148,6 @@ public class Application {
     public void clearScreen() {
         FabricaDisplay fabricaDisplay = new FabricaDisplay();
         InterfaceDisplay display = fabricaDisplay.getDisplay(supportedTerminal);
+        display.clear();
     }
 }

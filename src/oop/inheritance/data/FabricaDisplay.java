@@ -8,8 +8,11 @@ public class FabricaDisplay {
         if(supportedT == SupportedTerminal.INGENICO){
             return IngenicoDisplay.getInstance();
         }
-        if(supportedT == SupportedTerminal.INGENICO){
+        if(supportedT == SupportedTerminal.VERIFONE){
             return VerifoneV240mDisplay.getInstance();
+        }
+        else{
+            return null;
         }
     }
 
